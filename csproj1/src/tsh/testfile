@@ -1,0 +1,40 @@
+
+#################################################
+#   testfile for tiny shell
+#################################################
+
+# good commands and syntax ...
+
+echo "hello, world!"
+
+     echo    can you see  "  this?   " . # ignored
+
+	 echo "this has a newline\nin the middle"
+
+ls -l
+ls -l -t
+
+cat < testfile > /tmp/foo
+cmp testfile /tmp/foo
+rm /tmp/foo
+rm /tmp/foo
+
+cd /bin
+pwd
+cd
+
+pwd
+cd /noplace
+
+# bad syntax ...
+
+"missing quote
+too < many < stdin
+too > many > stdout
+append >> not good either
+pipes are | not supported; at least yet
+semicolons are not supported; at least yet
+
+# all done ...
+
+exit

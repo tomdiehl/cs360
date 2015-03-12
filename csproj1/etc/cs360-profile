@@ -1,0 +1,15 @@
+
+
+. /etc/bashrc
+
+#export CLASSROOT=/encs/cs/class
+
+#export SYSPATH=/bin:/usr/bin:/net/bin:/usr/X11R6/bin:/opt/kde2/bin:/usr/lib/kde2/bin:/usr/local/bin:/net/java/jdk1.3/bin
+
+#export PATH=.:~/bin:$CLASSROOT/cs360/bin:$CLASSROOT/cs360/etc:$SYSPATH
+#export LD_LIBRARY_PATH=/usr/lib:/net/lib/motif/lib:/net/lib
+
+#export SHELL=/bin/bash
+
+
+

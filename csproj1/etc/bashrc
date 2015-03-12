@@ -1,0 +1,13 @@
+
+###################################################
+# This is your .bashrc
+###################################################
+
+### Don't change this:
+
+. /cs_Share/class/cs360/etc/cs360-profile
+
+### Change this to vi or emacs for command line editing:
+
+set -o vi
+

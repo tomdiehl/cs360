@@ -1,0 +1,42 @@
+  char (*tkey) = "spank";
+    char (*tkey2) = "s";
+    int val = 1;
+    int val2 = 1;
+    
+    HashRoot *ht = hashCreate(7);
+    int index = hash(tkey,7);
+
+    int ind = hashInsert(ht,tkey,val); 
+    printf("item 1 inserted\n");
+    
+    int ind1 = hashInsert(ht,tkey2,val2);
+    printf("item 1 inserted\n");
+   
+    int returnVal = (int) ht->array[index]->value;
+    char *returnKey = (char *) ht->array[index]->key;
+    
+    printf("Insert Succeeded index[%d] key=%s val=%d \n",index,returnKey, returnVal);
+    printf("ind = %d ind1 = %d\n", ind, ind1);
+    
+    printf("search found %d \n", (int)ht->array[index]->value);
+    
+    int *returned = hashSearch(ht,tkey);
+    (*returned)++;
+    
+    printf("search found %d \n", (int)ht->array[index]->value);
+   
+    printf("size = %d , count = %d\n",ht->size, ht->count);
+
+    hashGrow(ht);
+    printf("Hash Grown\n");
+   
+    index = hash(tkey,ht->size);
+    printf("index[%d]\n",index);
+
+    printf("Insert Succeeded key=%s val=%d \n",returnKey, returnVal);
+    printf("size = %d , count = %d\n",ht->size, ht->count);
+    
+    returned = hashSearch(ht,tkey);
+    printf("search found %d \n",*returned);
+    
+    printOut(ht); 

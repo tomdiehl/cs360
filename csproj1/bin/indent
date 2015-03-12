@@ -1,0 +1,6 @@
+/usr/bin/indent \
+-kr -i4 -ts4 -d0 -nsob -pcs -ss -cs -br -ce -cd30 -lp \
+"$@" \
+2>/dev/null
+
+rm -f *.*~

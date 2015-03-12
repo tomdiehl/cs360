@@ -1,0 +1,103 @@
+? 
+? #################################################
+? #   testfile for tiny shell
+? #################################################
+? 
+? # good commands and syntax ...
+? 
+? echo "hello, world!"
+hello, world!
+? 
+?      echo    can you see  "  this?   " . # ignored
+can you see   this?    .
+? 
+? 	 echo "this has a newline\nin the middle"
+this has a newline
+in the middle
+? 
+? ls -l
+total 152
+-rw-r--r--    1 langd    students     3993 Mar 28 13:37 actual
+-rw-r--r--    1 langd    students     1475 Mar 28 13:33 exec.c
+-rw-rw-r--    1 langd    students     1840 Mar 28 13:34 exec.o
+-rw-r--r--    1 langd    students      386 Mar 28 13:37 expected
+-rw-r--r--    1 langd    students     1323 Nov  4  1999 get.c
+-rw-rw-r--    1 langd    students     1480 Mar 28 13:34 get.o
+-rw-r--r--    1 langd    students    33792 Nov  4  1999 here.exe
+-rw-r--r--    1 langd    students      625 Nov  4  1999 init.c
+-rw-r--r--    1 langd    students     1375 Mar 28 13:33 main.c
+-rw-rw-r--    1 langd    students     1320 Mar 28 13:34 main.o
+-rw-r--r--    1 langd    students      633 Mar 28 13:35 makefile
+-rw-r--r--    1 langd    students     2852 Mar 28 13:31 misc.c
+-rw-r--r--    1 langd    students      977 Mar 28 12:20 misc.h
+-rw-rw-r--    1 langd    students     2260 Mar 28 13:34 misc.o
+-rw-r--r--    1 langd    students     7238 Nov  4  1999 parse.c
+-rw-rw-r--    1 langd    students     4184 Mar 28 13:34 parse.o
+-rw-r--r--    1 langd    students     1587 Nov  4  1999 prog.c
+-rw-rw-r--    1 langd    students     1944 Mar 28 13:34 prog.o
+-rw-r--r--    1 langd    students     1063 Mar 28 13:34 redirect.c
+-rw-rw-r--    1 langd    students     1396 Mar 28 13:34 redirect.o
+-rw-r--r--    1 langd    students      605 Mar 28 13:37 testfile
+-rwxrwxr-x    1 langd    students    21977 Mar 28 13:34 tsh
+-rw-r--r--    1 langd    students     1417 Mar 28 13:34 tsh.h
+? ls -l -t
+total 152
+-rw-r--r--    1 langd    students     1868 Mar 28 13:37 expected
+-rw-r--r--    1 langd    students      605 Mar 28 13:37 testfile
+-rw-r--r--    1 langd    students     3993 Mar 28 13:37 actual
+-rw-r--r--    1 langd    students      633 Mar 28 13:35 makefile
+-rw-rw-r--    1 langd    students     1320 Mar 28 13:34 main.o
+-rw-rw-r--    1 langd    students     2260 Mar 28 13:34 misc.o
+-rw-rw-r--    1 langd    students     4184 Mar 28 13:34 parse.o
+-rw-rw-r--    1 langd    students     1944 Mar 28 13:34 prog.o
+-rw-rw-r--    1 langd    students     1396 Mar 28 13:34 redirect.o
+-rwxrwxr-x    1 langd    students    21977 Mar 28 13:34 tsh
+-rw-rw-r--    1 langd    students     1840 Mar 28 13:34 exec.o
+-rw-rw-r--    1 langd    students     1480 Mar 28 13:34 get.o
+-rw-r--r--    1 langd    students     1417 Mar 28 13:34 tsh.h
+-rw-r--r--    1 langd    students     1063 Mar 28 13:34 redirect.c
+-rw-r--r--    1 langd    students     1375 Mar 28 13:33 main.c
+-rw-r--r--    1 langd    students     1475 Mar 28 13:33 exec.c
+-rw-r--r--    1 langd    students     2852 Mar 28 13:31 misc.c
+-rw-r--r--    1 langd    students      977 Mar 28 12:20 misc.h
+-rw-r--r--    1 langd    students     1323 Nov  4  1999 get.c
+-rw-r--r--    1 langd    students    33792 Nov  4  1999 here.exe
+-rw-r--r--    1 langd    students      625 Nov  4  1999 init.c
+-rw-r--r--    1 langd    students     7238 Nov  4  1999 parse.c
+-rw-r--r--    1 langd    students     1587 Nov  4  1999 prog.c
+? 
+? cat < testfile > /tmp/foo
+? cmp testfile /tmp/foo
+? rm /tmp/foo
+? rm /tmp/foo
+rm: cannot remove `/tmp/foo': No such file or directory
+? 
+? cd /bin
+? pwd
+/bin
+? cd
+? 
+? pwd
+/home/langd
+? cd /noplace
+! can't cd to /noplace.
+? 
+? # bad syntax ...
+? 
+? "missing quote
+! unterminated string.
+! the error is near column 15.
+? too < many < stdin
+! can't repeat stdin redirection.
+? too > many > stdout
+! can't repeat stdout redirection.
+? append >> not good either
+! bad stdout filename.
+? pipes are | not supported; at least yet
+! pipes not supported.
+? semicolons are not supported; at least yet
+! semicolons not supported.
+? 
+? # all done ...
+? 
+? exit
