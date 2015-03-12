@@ -27,7 +27,9 @@ typedef struct _Philo{
 Philo *myPtr =  NULL; 
 int semID = 0;
 
+void philoFunct(int ID){
 
+}
 
 int randomGaussian(int mean, int stddev) {
 	double mu = 0.5 + (double) mean;
@@ -38,16 +40,6 @@ int randomGaussian(int mean, int stddev) {
 		return (int) floor(mu + sigma * cos(f2) * f1);
 	else            
 		return (int) floor(mu + sigma * sin(f2) * f1);
-}
-
-void philoFunct(int ID){
-	int eatnum = 0;
-	if((ID == 0) && (chop[0] == -1) && (chop[1] == -1)){
-		eatnum = randomGaussian(9 ,3);
-		sleep(eatnum);
-		
-	}
-	
 }
 
 void *ShareMalloc(int size){
@@ -78,7 +70,7 @@ int main(){
 		}
 		else{
 			//child
-			philoFunct(i);
+			phileFunct(i);
 			break;
 		
 		}
