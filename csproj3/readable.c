@@ -28,7 +28,7 @@ int traverse(char* path){
 	else{ 				            //is directory
 		newDir = opendir(path);	
 		if(newDir < 0){
-			fprintf(stderr,"", strerror(errno));
+			fprintf(stderr,"%s", strerror(errno));
 			exit(1);
 		}
 		while((dit = readdir(newDir)) != NULL){
