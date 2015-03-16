@@ -18,8 +18,7 @@ int ok(int fd, char *inWord){
     int up = size/WORDSIZE;
     int low = 0;
     char dicWord[WORDSIZE];
-    int result;
-
+	
     for(int i = strlen(inWord); i < WORDSIZE - 1; i++){
       inWord[i] = ' ';
     }
@@ -29,7 +28,7 @@ int ok(int fd, char *inWord){
         int index =(up + low)/2;
 
 	lseek(fd, index*WORDSIZE,SEEK_SET);
-	result = read(fd, dicWord,WORDSIZE);
+	read(fd, dicWord,WORDSIZE);
 	dicWord[WORDSIZE-1] = '\0'; 
 	if(strcmp(inWord,dicWord) < 0) up = index-1;
 	else if(strcmp(inWord,dicWord) > 0) low = index+1;
@@ -41,7 +40,7 @@ int ok(int fd, char *inWord){
 int main(int argc,char* argv[]){
   char inWord1[WORDSIZE];
   
-  int fd = open("/encs_share/cs/class/cs360/lib/webster",O_RDONLY, 0);
+  int fd = open("webster",O_RDONLY, 0);
 
   assert( fd > 0 && "Invalid Dictionary"); 
   assert(argv[1]!=NULL && "invalid cmd line argument");
